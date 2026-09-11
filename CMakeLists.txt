@@ -19,7 +19,7 @@ FetchContent_Declare(
 set(gtest_force_shared_crt ON CACHE BOOL "" FORCE)
 FetchContent_MakeAvailable(googletest)
 
-add_library(hello_lib src/greeting.cpp)
+add_library(hello_lib src/greeting.cpp src/hello_app.cpp)
 target_include_directories(hello_lib PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/include)
 
 add_executable(hello src/hello.cpp)

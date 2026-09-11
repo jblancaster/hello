@@ -1,6 +1,9 @@
 #include <gtest/gtest.h>
 
 #include "greeting.h"
+#include "hello.h"
+
+#include <sstream>
 
 int add(int a, int b) {
     return a + b;
@@ -8,6 +11,13 @@ int add(int a, int b) {
 
 TEST(HelloTest, ReturnsHelloWorldMessage) {
     EXPECT_EQ(hello_message(), "Hello, world!");
+}
+
+TEST(HelloTest, WritesHelloWorldMessage) {
+    std::ostringstream output;
+
+    EXPECT_EQ(run_hello(output), 0);
+    EXPECT_EQ(output.str(), "Hello, world!\n");
 }
 
 TEST(AddTest, AddsPositiveNumbers) {
